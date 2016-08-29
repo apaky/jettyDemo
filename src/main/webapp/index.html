@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>android 性能监控</title>
+<link rel="stylesheet" href="js/jeasyui/themes/default/easyui.css" />
+<link rel="stylesheet" href="css/frame.css" />
+<link rel="stylesheet" href="js/jeasyui/themes/icon.css" />
+<script language="javascript" type="text/javascript"
+	src="js/common/jquery-1.7.2.min.js"></script>
+<script language="javascript" type="text/javascript"
+	src="js/jeasyui/jquery.easyui.min.js"></script>
+<script language="javascript" type="text/javascript"
+	src="js/common/jeasyui.js"></script>
+<script language="javascript" type="text/javascript"
+	src="js/page/index.js"></script>
+</head>
+<body class="easyui-layout">
+	<form id="form1">
+		<div data-options="region:'north',border:false"
+			style="height: 45px; padding: 10px; background: #8DB2E3">
+			<span class="x-north-logo"></span>
+		</div>
+		<!-- 左侧导航 -->
+		<div data-options="region:'west',split:true,title:'导航'"
+			style="width: 160px; padding: 10px; padding: 0; margin: 0">
+			<div id="aa" class="easyui-accordion" style="padding: 0; margin: 0">
+				<div title="任务管理">
+					<div style="line-height: 22px; margin-left: 12px;">
+						<a class="nav" href="#" url="showStartTaskPg.do" title="启动任务">启动任务</a>
+					</div>
+					<div style="line-height: 22px; margin-left: 12px;">
+						<a class="nav" href="#" url="api/taskqueue.do" title="等待队列">等待队列</a>
+					</div>
+					<div style="line-height: 22px; margin-left: 12px;">
+						<a class="nav" href="#" url="api/errbackqueue.do" title="失败重试队列">失败重试队列</a>
+					</div>
+					<div style="line-height: 22px; margin-left: 12px;">
+						<a class="nav" href="#" url="taskstatus.do" title="执行状态表">执行状态表</a>
+					</div>
+					<div style="line-height: 22px; margin-left: 12px;">
+						<a class="nav" href="#" url="showResPage.do" title="查看结果">查看结果</a>
+					</div>
+					<div style="line-height: 22px; margin-left: 12px;">
+						<a class="nav" href="#" url="startLocalTaskPage.do" title="USB调试">USB调试</a>
+					</div>
+				</div>
+				<div title="设备管理" style="padding: 8px 0px 8px 0px">
+					<div style="line-height: 22px; margin-left: 12px;">
+						<a class="nav" href="#" url="showRegister.do"
+							title="Android设备注册与修改">Android设备注册与修改</a>
+					</div>
+					<div style="line-height: 22px; margin-left: 12px;">
+						<a class="nav" href="#" url="devicelist.do" title="设备列表">设备列表</a>
+					</div>
+				</div>
+				<div title="脚本管理" style="padding: 8px 0px 8px 0px">
+					<div style="line-height: 22px; margin-left: 12px;">
+						<a class="nav" href="#" url="upload.do?method=index" title="脚本管理">脚本管理</a>
+					</div>
+					<!-- <div style="line-height: 22px; margin-left: 12px;">
+						<a class="nav" href="#" url="scriptlist.do" title="脚本列表">脚本列表</a>
+					</div> -->
+				</div>
+			</div>
+		</div>
+		<!-- 内容  -->
+		<div data-options="region:'center'">
+			<div id="tabs" class="easyui-tabs">
+				<div id="main" data-options="title:'首页',closable:false"
+					style="padding: 20px;"></div>
+			</div>
+		</div>
+		<!-- 鼠标右键  -->
+		<div id="mm" class="easyui-menu" style="width: 160px;">
+			<div id="mm-closeone" onclick="CloseCurrTab()">关闭当前选项</div>
+			<div id="mm-closeall" onclick="CloseAllTabExceptThis()">
+				除此之外全部关闭</div>
+		</div>
+		<!-- reload -->
+		<div id="tab-tools">
+			<a href="#" class="easyui-linkbutton"
+				data-options="plain:true,iconCls:'icon-reload'"
+				onclick="ReloadTab()"></a>
+		</div>
+		<input type="hidden" id="hidCurrTab" />
+	</form>
+</body>
+</html>
